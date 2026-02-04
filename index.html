@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ObscuraVim</title>
+    <meta name="description" content="A stealth Neovim distribution: looks like default, acts like a weapon." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">[::]</span>
+        <span class="brand-name">ObscuraVim</span>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#principles">Principles</a>
+        <a href="#shortcuts">Shortcuts</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="about">
+        <p class="eyebrow">Stealth Neovim Distribution</p>
+        <h1>Looks empty. Works loaded.</h1>
+        <p class="lead">
+          ObscuraVim is a light-weight, blazingly-fast Neovim setup that wears a black mask.
+          No flashy UI by default: just black background, white text, and a razor-sharp core.
+          Everything else appears only on demand.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#principles">See the design</a>
+          <a class="btn ghost" href="#shortcuts">Jump to shortcuts</a>
+        </div>
+      </section>
+
+      <section class="grid" id="principles">
+        <div class="card">
+          <h2>Minimal Surface</h2>
+          <p>No statusline, no numbers, no noise. Diagnostics are quiet until you ask.</p>
+        </div>
+        <div class="card">
+          <h2>Hidden Power</h2>
+          <p>LSP, fuzzy search, folds, file manager, formatting — all revealed by keys.</p>
+        </div>
+        <div class="card">
+          <h2>Fast By Design</h2>
+          <p>Lazy loading, trimmed runtime, and disabled providers keep startup lean.</p>
+        </div>
+      </section>
+
+      <section class="console" id="shortcuts">
+        <div class="console-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="title">obscura.vim — real shortcuts</span>
+        </div>
+        <div class="console-body">
+          <div class="line"><span class="key">Space + ff</span><span class="desc">Find files (Telescope)</span></div>
+          <div class="line"><span class="key">Space + fw</span><span class="desc">Live grep search</span></div>
+          <div class="line"><span class="key">Tab</span><span class="desc">Buffers picker</span></div>
+          <div class="line"><span class="key">Ctrl + e</span><span class="desc">Oil file manager</span></div>
+          <div class="line"><span class="key">s</span><span class="desc">Flash jump navigation</span></div>
+          <div class="line"><span class="key">gq</span><span class="desc">Format with Conform</span></div>
+          <div class="line"><span class="key">Visual + Ctrl + r</span><span class="desc">Rename via rgr</span></div>
+          <div class="line muted">"Stealth UI, precise control."</div>
+        </div>
+      </section>
+
+      <section class="details" id="manifesto">
+        <h3>Obscura Manifesto</h3>
+        <div class="manifesto">
+          <article class="thesis">
+            <h4>Editor, Not IDE</h4>
+            <p>Code is text. When you write code, you should write text — not chase UI. ObscuraVim keeps the editor pure and moves tools to the background.</p>
+          </article>
+          <article class="thesis">
+            <h4>Know the Tools</h4>
+            <p>Buttons hide understanding. ObscuraVim favors explicit actions so you learn what actually happens when you build, run, or refactor.</p>
+          </article>
+          <article class="thesis">
+            <h4>Color With Restraint</h4>
+            <p>Everything highlighted means nothing is. Moss keeps contrast low and focus high. Read more about the philosophy at <a class="inline" href="https://github.com/moss-theme">moss-theme</a>.</p>
+          </article>
+          <article class="thesis">
+            <h4>LSP For Truth, Not Tricks</h4>
+            <p>LSP is here for errors and instant feedback — not magic. No distraction, no dependency on jumps to understand unknown code.</p>
+          </article>
+          <article class="thesis">
+            <h4>Search Is The Tool</h4>
+            <p>Deep work is search, edit, and write. Telescope + FZF + ripgrep turn any codebase into a map you can traverse fast.</p>
+          </article>
+          <article class="thesis">
+            <h4>Completions On Demand</h4>
+            <p>Focus first, suggestions second. Completion stays hidden until you ask for it, so typing never gets hijacked.</p>
+          </article>
+          <article class="thesis">
+            <h4>Control The Formatter</h4>
+            <p>One key can format, but you choose the binaries, paths, and flags. Mason wraps the install, not the decisions.</p>
+          </article>
+          <article class="thesis">
+            <h4>Unix Power, Minimal Plugins</h4>
+            <p>Neovim already does a lot. ObscuraVim stays light, uses buffers for file management, and leaves space for the Unix flow.</p>
+          </article>
+          <article class="thesis">
+            <h4>Invisible By Default</h4>
+            <p>Open ObscuraVim and it looks like stock. The power is in your fingers, revealed only when you need it.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="details" id="preview">
+        <div class="split">
+          <div>
+            <h3>Performance Profile</h3>
+            <p>
+              ObscuraVim boots with a slim runtime and lazy plugins. Builtin providers are disabled,
+              UI chrome is stripped, and only the essentials load when you need them.
+            </p>
+            <a class="inline" href="#">Get release updates</a>
+          </div>
+          <div>
+            <h3>Demo Preview</h3>
+            <div class="video-frame large" aria-label="Video demo placeholder">
+              <div class="video-inner">
+                <span class="video-label">Demo video placeholder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="details" id="core-tools">
+        <div class="split">
+          <div>
+            <h3>Core Tools</h3>
+            <div class="tool-table" role="table" aria-label="Core tools list">
+              <div class="tool-row" role="row">
+                <span class="tool-label" role="cell">Search</span>
+                <span class="tool-value" role="cell">Telescope + FZF + ripgrep</span>
+              </div>
+              <div class="tool-row" role="row">
+                <span class="tool-label" role="cell">Files</span>
+                <span class="tool-value" role="cell">Oil buffer file manager</span>
+              </div>
+              <div class="tool-row" role="row">
+                <span class="tool-label" role="cell">Navigation</span>
+                <span class="tool-value" role="cell">Flash smart jumps + UFO folds</span>
+              </div>
+              <div class="tool-row" role="row">
+                <span class="tool-label" role="cell">Formatting</span>
+                <span class="tool-value" role="cell">Conform (auto format on read)</span>
+              </div>
+              <div class="tool-row" role="row">
+                <span class="tool-label" role="cell">Completion</span>
+                <span class="tool-value" role="cell">Blink.cmp + LuaSnip (manual trigger)</span>
+              </div>
+              <div class="tool-row" role="row">
+                <span class="tool-label" role="cell">Theme</span>
+                <span class="tool-value" role="cell">Moss minimal contrast</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>Supported LSP</h3>
+            <p>
+              HTML, CSS, TS/JS, Rust, Go, Lua, Python, C/C++, SQL, LaTeX — configured for
+              precise error feedback without UI overload.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-left">ObscuraVim · light-weight and blazingly fast</div>
+      <div class="footer-right">soon: public release</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

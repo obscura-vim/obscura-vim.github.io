@@ -236,6 +236,11 @@ h1 {
   gap: 32px;
 }
 
+#preview .split {
+  grid-template-columns: minmax(220px, 0.85fr) minmax(480px, 1.9fr);
+  align-items: start;
+}
+
 h3 {
   color: var(--c-fg-strong);
   font-size: 16px;
@@ -295,15 +300,92 @@ li {
   background: rgba(0, 0, 0, 0.6);
 }
 
+.video-frame.full {
+  margin-top: 22px;
+}
+
 .video-frame.large .video-inner {
   min-height: 280px;
 }
 
 .video-inner {
-  border: 1px dashed var(--c-dim);
   min-height: 180px;
   display: grid;
   place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 1px solid var(--c-dim);
+  background: #000000;
+}
+
+.video-frame.large .demo-video {
+  min-height: 360px;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--c-fg-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.video-inner.is-paused .video-overlay {
+  opacity: 1;
+}
+
+.demo-header {
+  max-width: 640px;
+}
+
+.perf-compare {
+  border: 1px solid var(--c-dim);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.perf-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.perf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--c-dim);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c-dim);
+}
+
+.perf-note {
+  color: var(--c-accent-2);
+}
+
+.ascii-chart {
+  margin: 0;
+  padding: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--c-fg);
+  white-space: pre;
 }
 
 .video-label {
@@ -343,6 +425,10 @@ li {
 }
 
 @media (max-width: 720px) {
+  #preview .split {
+    grid-template-columns: 1fr;
+  }
+
   .tool-row {
     grid-template-columns: 1fr;
     gap: 6px;

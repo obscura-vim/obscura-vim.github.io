@@ -25,7 +25,7 @@
     <main>
       <section class="hero" id="about">
         <p class="eyebrow">Stealth Neovim Distribution</p>
-        <h1>Looks empty. Works loaded.</h1>
+        <h1>Looks empty. Feels plenty.</h1>
         <p class="lead">
           ObscuraVim is a light-weight, blazingly-fast Neovim setup that wears a black mask.
           No flashy UI by default: just black background, white text, and a razor-sharp core.
@@ -114,22 +114,51 @@
       </section>
 
       <section class="details" id="preview">
-        <div class="split">
-          <div>
-            <h3>Performance Profile</h3>
-            <p>
-              ObscuraVim boots with a slim runtime and lazy plugins. Builtin providers are disabled,
-              UI chrome is stripped, and only the essentials load when you need them.
-            </p>
-            <a class="inline" href="#">Get release updates</a>
+        <div class="demo-header">
+          <h3>Demo Preview</h3>
+          <p>
+            Real-time session capture. No cuts, no overlays, just the raw flow.
+          </p>
+        </div>
+        <div class="video-frame large full" aria-label="Demo video">
+          <div class="video-inner">
+            <video
+              class="demo-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+              <source src="demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay" aria-hidden="true">Paused</div>
           </div>
-          <div>
-            <h3>Demo Preview</h3>
-            <div class="video-frame large" aria-label="Video demo placeholder">
-              <div class="video-inner">
-                <span class="video-label">Demo video placeholder</span>
-              </div>
+        </div>
+      </section>
+
+      <section class="details" id="performance">
+        <h3>Performance Profile</h3>
+        <p>
+          ObscuraVim boots with a slim runtime and lazy plugins. Builtin providers are disabled,
+          UI chrome is stripped, and only the essentials load when you need them.
+        </p>
+        <a class="inline" href="#">Get release updates</a>
+        <div class="perf-grid">
+          <div class="perf-compare" aria-label="Light-weight comparison">
+            <div class="perf-header">
+              <span>Light-weight</span>
+              <span class="perf-note">Lower is better</span>
             </div>
+            <pre class="ascii-chart" id="perf-chart-lightweight" aria-live="polite"></pre>
+          </div>
+          <div class="perf-compare" aria-label="Blazingly-fast comparison">
+            <div class="perf-header">
+              <span>Blazingly-fast</span>
+              <span class="perf-note">Lower is better</span>
+            </div>
+            <pre class="ascii-chart" id="perf-chart-fast" aria-live="polite"></pre>
           </div>
         </div>
       </section>

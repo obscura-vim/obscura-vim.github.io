@@ -4,13 +4,15 @@
 #   curl -fsSL https://obscuravim.xyz/install.sh | sh
 #
 # Detects your Neovim version and installs the right tier:
-#   - Neovim >= 0.11        -> full config  (github.com/obscura-vim/obscura-vim)
+#   - Neovim >= 0.12        -> next config  (github.com/obscura-vim/obscura-next)
+#   - Neovim 0.11           -> full config  (github.com/obscura-vim/obscura-vim)
 #   - older Neovim / none   -> minimal single-file config
 #                              (github.com/obscura-vim/obscura-minimal)
 # An existing config is backed up, never overwritten.
 
 set -eu
 
+NEXT_REPO="https://github.com/obscura-vim/obscura-next.git"
 FULL_REPO="https://github.com/obscura-vim/obscura-vim.git"
 MINIMAL_RAW="https://raw.githubusercontent.com/obscura-vim/obscura-minimal/main/init.vim"
 
@@ -33,12 +35,13 @@ nvim_minor() {
 }
 
 install_full() {
+    repo="$1"
     command -v git >/dev/null 2>&1 || {
-        say "git is required for the full config"; exit 1;
+        say "git is required for this config"; exit 1;
     }
     backup "$NVIM_DIR"
-    git clone --depth 1 "$FULL_REPO" "$NVIM_DIR"
-    say "Installed full ObscuraVim into $NVIM_DIR"
+    git clone --depth 1 "$repo" "$NVIM_DIR"
+    say "Installed ObscuraVim into $NVIM_DIR"
 
     say "Bootstrapping plugins, mason tools and treesitter parsers"
     say "(headless, may take a few minutes on first install)..."
@@ -68,9 +71,14 @@ main() {
     if [ -n "$ver" ]; then
         major="${ver%% *}"
         minor="${ver##* }"
-        if [ "$major" -gt 0 ] || [ "$minor" -ge 11 ]; then
+        if [ "$major" -gt 0 ] || [ "$minor" -ge 12 ]; then
+            say "Neovim 0.$minor detected -> next config (0.12+)"
+            install_full "$NEXT_REPO"
+            return
+        fi
+        if [ "$minor" -eq 11 ]; then
             say "Neovim 0.$minor detected -> full config"
-            install_full
+            install_full "$FULL_REPO"
             return
         fi
         say "Neovim 0.$minor is too old for the full config -> minimal tier"

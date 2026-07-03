@@ -39,7 +39,15 @@ install_full() {
     backup "$NVIM_DIR"
     git clone --depth 1 "$FULL_REPO" "$NVIM_DIR"
     say "Installed full ObscuraVim into $NVIM_DIR"
-    say "Launch nvim: lazy.nvim will bootstrap and install plugins."
+
+    say "Bootstrapping plugins, mason tools and treesitter parsers"
+    say "(headless, may take a few minutes on first install)..."
+    if nvim --headless "+ObscuraSync" +qa; then
+        say "Bootstrap complete: nvim is fully ready."
+    else
+        say "warning: bootstrap finished with errors."
+        say "Run :ObscuraSync inside nvim to retry."
+    fi
 }
 
 install_minimal() {
